@@ -22,10 +22,18 @@ pids/
 *.seed
 *.pid.lock
 
-# Storage
+# Storage - ignore contents but keep the directories
 uploads/
 example-storage/*
+
+# Ignore storage contents but track directory structure
+storage/*
+!storage/buckets/
+!storage/temp/
 storage/buckets/*
+storage/temp/*
+!storage/buckets/.gitkeep
+!storage/temp/.gitkeep
 
 # Context
 context/

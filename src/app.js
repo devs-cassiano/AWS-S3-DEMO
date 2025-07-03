@@ -10,10 +10,15 @@ const logger = require('./utils/logger');
 const errorHandler = require('./api/middlewares/errorHandler');
 const routes = require('./api/routes');
 const swaggerSetup = require('../swagger');
+const initializeStorageDirs = require('./utils/ensureStorageDirs');
 
 class App {
   constructor() {
     this.app = express();
+    
+    // Garantir que os diretórios de armazenamento existam
+    this.storagePaths = initializeStorageDirs();
+    
     this.setupMiddlewares();
     this.setupSwagger(); // Configurar Swagger antes das rotas e manipulador de erros
     this.setupRoutes();
