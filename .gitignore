@@ -25,6 +25,7 @@ pids/
 # Storage
 uploads/
 example-storage/*
+storage/buckets/*
 
 # Context
 context/
