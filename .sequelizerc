@@ -1,0 +1,37 @@
+const config = require('./src/config');
+
+module.exports = {
+  development: {
+    username: config.database.username,
+    password: config.database.password,
+    database: config.database.database,
+    host: config.database.host,
+    port: config.database.port,
+    dialect: config.database.dialect,
+    logging: config.database.logging
+  },
+  test: {
+    username: config.database.username,
+    password: config.database.password,
+    database: `${config.database.database}_test`,
+    host: config.database.host,
+    port: config.database.port,
+    dialect: config.database.dialect,
+    logging: false
+  },
+  production: {
+    username: config.database.username,
+    password: config.database.password,
+    database: config.database.database,
+    host: config.database.host,
+    port: config.database.port,
+    dialect: config.database.dialect,
+    logging: false,
+    pool: {
+      max: 10,
+      min: 0,
+      acquire: 30000,
+      idle: 10000
+    }
+  }
+};
